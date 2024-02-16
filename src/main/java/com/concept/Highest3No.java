@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BooleanSupplier;
 import java.util.function.Function;
@@ -46,14 +47,14 @@ public class Highest3No {
 		// create a sequence no from two list
 		// merge two list
 		List<Integer> l1 = Arrays.asList(10, 12, 54, 2, 554, 32);
-		List<Integer> l2 = Arrays.asList(8, 11, 87, 29, 3, 9);
+		List<Integer> l2 = Arrays.asList(8, 11, 87, 12,60, 29, 3, 9);
 		List<Integer> mergeList = Stream.of(l1, l2)
 				.flatMap(Collection::stream)
 				.sorted()
 				.collect(Collectors.toList());
 		System.out.println("Merge List : " + mergeList);
 
-		// 3rd Highest no
+		// 3rd Highest no - 1
 		Integer thirdHighest = mergeList.stream()
 				.sorted(Comparator.reverseOrder())
 				.skip(2)
@@ -61,7 +62,14 @@ public class Highest3No {
 				.orElse(null);
 
 		System.out.println("Top Third no : " + thirdHighest);
-
+		
+		// 3rd Highest no - 2
+		Optional<Integer> find3rd = mergeList.stream()
+			.distinct()
+			.sorted((a,b) -> b-a)
+			.skip(2)
+			.findFirst();
+		System.out.println("Top Third no - 2 : " + find3rd.get());
 	}
 
 }

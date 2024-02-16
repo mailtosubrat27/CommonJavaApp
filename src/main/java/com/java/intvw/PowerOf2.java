@@ -12,6 +12,8 @@ public class PowerOf2 {
 		
 		//using old java
 		power2(num);
+		
+		System.out.println(verifyPowerOf2(num));
 	}
 
 	private static void power2(Integer num) {
@@ -33,6 +35,19 @@ public class PowerOf2 {
 		else {
 			System.out.println("not");
 		}
+	}
+	
+	public static boolean verifyPowerOf2(Integer num) {
+		if( num <= 0) {
+			return false;
+		}
+		while(num >1 ) {
+			if(num%2 !=0) {
+				return false;
+			}
+			num /= 2;
+		}
+		return true;
 	}
 
 }
