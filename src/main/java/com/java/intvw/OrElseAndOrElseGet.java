@@ -1,5 +1,6 @@
 package com.java.intvw;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 /*
  orElse and orElseGet both are Optional class methods
@@ -7,10 +8,35 @@ import java.util.stream.Stream;
  - if value is present orElese will be invoked but return value will not assign
  - if value is present orEleseGet method will not be invoked 
  
+ orElseThrow 
+ - if does not define this method, if value not present it throws NoSuchElelement Exception
+ - if method present it throws defined exception
+ 
  */
 public class OrElseAndOrElseGet {
 
 	public static void main(String[] args) {
+		orElseAndorElseGet();
+		orElseThrow();
+		
+	}
+
+	private static void orElseThrow() {
+		Optional<String> orElseThw = Stream.of("This","is", "orElse", "orElseGet")
+				.filter(s -> s.startsWith("M"))
+				.findFirst();
+				
+//				System.out.println(orElseThw.get()); // It will trhow NoSuchElementException
+				
+		 String orEleseThrowStr = Stream.of("This","is", "orElse", "orElseGet")
+				.filter(s -> s.startsWith("M"))
+				.findFirst()
+				.orElseThrow(() -> new NumberFormatException());
+				
+				System.out.println(orEleseThrowStr); // It will throw defined exception if value not present
+				
+	}
+	private static void orElseAndorElseGet() {
 		String orElse = Stream.of("This","is", "orElse", "orElseGet")
 		.filter(s -> s.startsWith("o"))
 		.findFirst()
