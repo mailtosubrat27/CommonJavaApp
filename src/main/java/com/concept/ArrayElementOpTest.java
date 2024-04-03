@@ -18,6 +18,15 @@ public class ArrayElementOpTest {
 		//Get SUM of the list
 		int p=noList.stream().reduce(10, (x,y)->x+y);
 		System.out.println(p);
+		
+		//Sort elements- ascending 
+		 List<Integer> sorted = noList.stream()
+			.sorted(Integer :: compare)
+			.collect(Collectors.toList());
+		 System.out.println("Ascending Sorted: "+ sorted);
+		 
+		//Sort elements- descending
+		 
 	}
 
 }
