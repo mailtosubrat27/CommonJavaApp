@@ -33,6 +33,7 @@ public class LongestSubstring {
 					if(ch == c) {
 						int start = chs.indexOf(ch);
 						wordList.add(getStringFromChList(start, chs));
+						break;
 					}
 				}
 			}

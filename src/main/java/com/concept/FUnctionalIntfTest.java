@@ -17,8 +17,6 @@ public class FUnctionalIntfTest {
 		int sum = add.apply(3, 4); // Result: 7
 		System.out.println("Binary Operator:"+ sum);
 		
-
-
 	}
 }
 
