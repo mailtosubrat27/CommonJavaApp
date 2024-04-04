@@ -23,10 +23,12 @@ public class GroupBy {
          
          String inputString = "Java Concept Of The Day";
          Map<Character, Long> charCountMap = inputString.chars().mapToObj(a -> (char)a)
-         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+         .collect(Collectors.groupingBy
+        		 (Function.identity(), Collectors.counting()));
          
          System.out.println(" Letter count : "+ charCountMap);
          
+
          intRange();
 	}
 	
