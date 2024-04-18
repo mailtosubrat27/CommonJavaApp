@@ -26,7 +26,10 @@ public class SuccessChar {
 		    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
 			.forEach((key, value) -> System.out.println(key + " : " + value));
      
-			
+		    Map<String, Long> collect = Arrays.stream(str.split(""))
+		    		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		    System.out.println(collect.toString());
+
 	}
 
 }
