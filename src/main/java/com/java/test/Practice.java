@@ -10,7 +10,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Practice {
 
@@ -59,6 +58,17 @@ public class Practice {
 		 
 		 int[] numbs = {32,12,5,3,8,43, 12, 18};
 		 
+		 //sort descending order
+		 List<Integer> collect8 = Arrays.stream(numbs).boxed()
+		 .sorted(Comparator.reverseOrder())
+		 .collect(Collectors.toList());
+		 System.out.println(collect8);
+		 
+		 List<Integer> collect9 = Arrays.stream(numbs).boxed()
+		 .sorted((a,b) -> (a < b) ? 1 : (a > b)? -1 : 0)
+		 .collect(Collectors.toList());
+		 System.out.println(collect9);
+
 		 //find 2nd Highest no
 		   Optional<Integer> min = Arrays.stream(numbs).boxed()
 		 .sorted(Comparator.reverseOrder())
@@ -99,6 +109,13 @@ public class Practice {
 		 System.out.println(reduce3.get());
 		 String join = String.join("--", strArr);
 		 System.out.println(join);
+		 
+		 //Sort strings based on string length
+		 List<String> list = Arrays.stream(strArr)
+//		 .sorted(Comparator.comparingInt(String::length))
+		 .sorted((a,b) -> -(Integer.compare(a.length(), b.length())))
+		 .toList();
+		 System.out.println(list);
 
 	}
 
