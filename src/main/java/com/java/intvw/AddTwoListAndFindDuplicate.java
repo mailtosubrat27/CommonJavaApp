@@ -33,9 +33,9 @@ public class AddTwoListAndFindDuplicate {
 				.toList();
 		System.out.println("2- Add two Lists using concat : "+ newList1);
 		
-		Stream.generate(new Random() :: nextInt)
-		.limit(5)
-		.forEach(System.out :: println);
+//		Stream.generate(new Random() :: nextInt)
+//		.limit(5)
+//		.forEach(System.out :: println);
 	}
 
 	private static void findDuplicateFromList(List<Integer> l1, List<Integer> l2) {
@@ -49,6 +49,10 @@ public class AddTwoListAndFindDuplicate {
 				   .collect( Collectors.toList() );
 		
 		System.out.println("1- Duplicate List : "+ newList);
+		
+		List<Integer> collect = l1.stream().filter(l2::contains)
+		        .collect(Collectors.toList());
+		System.out.println("2- Duplicate List : "+ collect);
 		
 	}
 

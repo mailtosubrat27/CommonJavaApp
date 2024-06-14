@@ -94,11 +94,6 @@ public class EmployeeDeptList {
 		.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getAge)));
 		System.out.println(collect6);
 		
-		
-		
-		
-		
-		
 		//find only name and gender form employee whose age >30
 		
 		
