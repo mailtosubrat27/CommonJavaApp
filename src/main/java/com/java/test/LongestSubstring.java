@@ -5,19 +5,52 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class LongestSubstring {
 
 	public static void main(String[] args) {
 
-		String str = "javadfgwggh";//"adfaytrui";
+		String str = "afdatyuioagd";//"adfaytrui";
 		//not working
 		//lengthofLongestSubString(str);
 		
-		//sks - 
+		//sks - logest substring
 		lengthofLongestSubString2(str);
+		lengthofLongestSubString3(str);
 		
 
+	}
+
+	private static void lengthofLongestSubString3(String str) {
+		List<Character> chList = new ArrayList<Character>();
+		char[] charArray = str.toCharArray();
+		int subStrLength = 0;
+		String subStr = "";
+		
+		for (int i = 0; i < charArray.length; i++) {
+			char c = charArray[i];
+			
+			if(chList != null && !chList.contains(c)) {
+				chList.add(c);
+			} else {
+				i--;
+				subStrLength = Math.max(chList.size(), subStrLength);
+				if(chList.size() == subStrLength)
+				subStr = chList.stream()
+						.map(e -> e.toString())
+						.collect(Collectors.joining());
+				chList.clear();
+			}
+		}
+		if(subStrLength <= chList.size()) {
+			subStrLength = Math.max(chList.size(), subStrLength);
+			subStr = chList.stream()
+					.map(e -> e.toString())
+					.collect(Collectors.joining());
+		}
+		System.out.println("Length :"+subStrLength);
+		System.out.println("Sub String :"+subStr);
 	}
 
 	private static void lengthofLongestSubString2(String str) {
@@ -40,7 +73,7 @@ public class LongestSubstring {
 			
 			
 		}
-		
+
 		System.out.println(map);
 		
 		

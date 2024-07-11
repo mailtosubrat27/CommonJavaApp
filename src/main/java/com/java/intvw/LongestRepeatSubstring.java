@@ -25,7 +25,7 @@ public class LongestRepeatSubstring {
 		System.out.println("Longest repeated substring: " +longestSubstring(str));
 		
 		//sks
-//		repeatSubstring("aabecaa");
+		repeatSubstring("aabecaa");
 
 	}
 
